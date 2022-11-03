@@ -1,13 +1,26 @@
 import {Flex, Heading,Input, Icon,Box, Text, Link  } from "@chakra-ui/react";
-import React, {useState} from "react";
+import axios from 'axios'
+import  {useState, useEffect} from "react";
 import { Link as RouterLink, useParams, useSearchParams} from "react-router-dom";
 import {FiSearch} from "react-icons/fi";
-import properties from "../Properties";
 import PropertyScreen from "../screens/PropertyScreen";
 import Property from "./Property";
 
 
-function SearchBar (property){
+function SearchBar (){
+    const { id } = useParams();
+    const [property, setProperty] = useState({});
+    const [properties, setProperties] = useState({});
+
+    useEffect(() => {
+      const getProperty = async () => {
+        const { data } = await axios.get(`/api/properties/${id}`);
+        setProperty(data);
+        setProperties(data);
+      };
+  
+      getProperty();
+    }, []);
    
    
      const[filteredProps,setFilteredProps] = useState([])

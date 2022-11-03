@@ -1,11 +1,23 @@
+import {useState, useEffect} from "react";
+import axios from 'axios';
 import {Flex, Box, Text, Heading, Link,Button, Image, Divider,Grid, Spacer,Icon} from "@chakra-ui/react";
 import { Link as RouterLink, useParams} from "react-router-dom";
-import properties from "../Properties";
+
 import {FiStar} from "react-icons/fi"
 
 const PropertyScreen = () =>{
-    const {id} = useParams()
-    const property = properties.find((prop)=> prop._id === id) 
+    const { id } = useParams();
+    const [property, setProperty] = useState({});
+
+    useEffect(() => {
+      const getProperty = async () => {
+        const { data } = await axios.get(`/api/properties/${id}`);
+        setProperty(data);
+      };
+  
+      getProperty();
+    }, [id]);
+  
    
 
     return(
