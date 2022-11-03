@@ -33,7 +33,7 @@ const Property = ({property})=>{
               <Flex direction="row" justify="space-between" >
                 <Flex gap="30" direction="column" mt="5" mb="3">
                   <Heading as="h4" fontSize="md" color="blue.900" mb="3">
-                    Land Type-{property.property_type}
+                    Land Type-{property.type}
                   </Heading>
                   <Heading as="h4" fontSize="md" color="blue.900" mb="3">
                    Location- {property.location}

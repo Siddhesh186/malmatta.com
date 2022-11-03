@@ -36,13 +36,13 @@ const PropertyScreen = () =>{
             {/*column 1 */}
             <Flex direction="column" ml="5">
              <Image _hover={{size:"lg", bgColor:"dark", shadow:"lg"}} src={property.image} alt="property" w="300px" h="300px" borderRadius="md" ml="2"  mt="4" mb="4"/>
-             <Text size="md" fontWeight="bold">Posted on {property.posted_on}  by owner {property.owner_name}</Text>
+             <Text size="md" fontWeight="bold">Posted on {property.posted_on}  by owner {property.name}</Text>
             </Flex>
             
               {/*column 2 */}
             <Flex direction="column"  py="10" px="10"  gap="55">
                 <Text fontWeight="bold"  color="black">
-                   Property type-{property.property_type}
+                   Property type-{property.type}
                 </Text>
                 <Text  fontWeight="bold" color="black">
                   Location- {property.location}
