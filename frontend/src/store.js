@@ -1,13 +1,35 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { propertyListReducer } from './reducers/propertyReducer'; 
+import { propertyListReducer, propertyDetailsReducer } from './reducers/propertyReducer'; 
+import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
+import { shortlistReducer } from './reducers/shortlistReducer';
 
 const reducer = combineReducers({
     propertyList: propertyListReducer,
+    propertyDetails: propertyDetailsReducer,
+    shortlist : shortlistReducer,
+    userLogin: userLoginReducer,
+    userRegister: userRegisterReducer,
+    
 });
 
-const initialState ={}
+const shortlistItemsFromStorage =
+ 
+ localStorage.getItem('shortlistItems')
+   ? JSON.parse(localStorage.getItem('shortlistItems'))
+   : [];
+
+   
+
+const userInfoFromStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
+  : null;
+
+const initialState ={
+    shortlist: {shortlistItems: shortlistItemsFromStorage},
+    userLogin: { userInfo: userInfoFromStorage },
+}
 
 const middlewares =[thunk];
 

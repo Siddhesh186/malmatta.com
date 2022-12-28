@@ -1,48 +1,80 @@
 import mongoose from 'mongoose';
 
+const reviewSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    rating: {
+        type: Number,
+        required: true,
+    },
+    comment: {
+        type: String,
+        required: true,
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+})
+
 const propertySchema = mongoose.Schema(
    {
-    user : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'User',
+    user: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref : 'User',
+        required: true,
+    },
+    
+    location : {
+        type:String,
         required: true,
     },
     name : {
-        type:String,
+        type : String,
+        required: true,
+    },
+    type: {
+        type: String,
         required: true,
     },
     image : {
         type : String,
-        required: true,
-    },
-    description : {
-        type: String,
-        required: true,
+        required : true,
+       
     },
     dimension : {
-        type : Number,
-        required : true,
-        default : true,
+        type :  Number,
+        required: true,
+        default : 0,
     },
     price : {
         type :  Number,
         required: true,
         default : 0,
-    },
-    location : {
-        type : String,
-        required :true,
         
     },
+    description : {
+        type : String,
+        required : true,
+    }, 
     gates : {
         type: Number,
         required : true,
-        default: 0,
+        default: 0,        
+    }, 
+    boundryWall : {
+        type: String,
+        required: true,
     },
-    boundry_wall : {
-        type : String,
-        required : true,
-    }
+    numReviews: {
+        type: Number,
+        required: true,
+        default: 0,
+      },  
+    reviews: [reviewSchema],
    },
    {timestamps: true}
 );

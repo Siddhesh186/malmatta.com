@@ -1,39 +1,50 @@
-import { useState, useEffect} from "react";
+import {  useEffect} from "react";
 import axios from "axios";
 import {useDispatch, useSelector} from 'react-redux';
 import {Flex, Heading, Box, Grid, Spacer} from "@chakra-ui/react";
 import Property from "../components/Property";
-//import SearchBar from "../components/SearchBar";
+
 import { listProperties } from "../actions/propertyActions";
 import SearchBar from "../components/SearchBar";
+import Loader from '../components/Loader';
+import Message from "../components/Message";
+
+
 
 const HomeScreen = () => {
-   const [properties, setProperties] = useState([]);
+  const dispatch = useDispatch();
 
-   useEffect(() => {
-     const fetchProperties = async () => {
-       const { data } = await axios.get('/api/properties');
-       setProperties(data);
-     };
- 
+  const propertyList = useSelector((state) => state.propertyList);
+  const {loading, error, properties } = propertyList; 
      
-     fetchProperties();
-   }, []);
+     useEffect(()=> {
+      dispatch(listProperties());
+     },[dispatch])
+  
  
 
     return (
-        <>
-        <SearchBar/>
-         <Heading as='h1' fontSize="3x1" mt="10px" ml="4" >
-            Featured For You
+        <>    
+         { loading ? (
+           <Loader/>
+           ): error ? (
+            <Message type="error">{error}</Message>
+           ) : (
+            <>
+            <SearchBar/>
+
+         <Heading as='h1' fontSize="md" mt="10px" ml="4" >
+            Featuring some plots for you
          </Heading>
          <Spacer/>
-         
-            <Grid direction="column" w="50%" bgColor="white" gap="2" mt="2">
-             {properties.map((prop)=>(
-                <Property property={prop} key={prop._id}/>
-            ) )}
-         </Grid>
+            <Grid gridTemplateColumns='4fr 4fr' w="100%" bgColor="gray.300S" gap="2" mt="4" mb='4' px='4'>
+            {properties.slice(0,8).map((prop)=>(
+               <Property property={prop} key={prop._id}/>
+           ) )}
+        </Grid>
+        </>
+           )}
+            
          
          
         </>

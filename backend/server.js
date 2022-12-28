@@ -1,29 +1,27 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-import properties from './data/properties.js'
+import propertyRoutes from './routes/propertyRoutes.js'
 import mongoose from 'mongoose';
-import colors from 'colors'
+import colors from 'colors';
+import { notFound, errorHandler} from './middlewares/errorMiddlewares.js'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config();
 
-connectDB()
+ connectDB()
 
 
-const app = express()
+const app = express();
+app.use(express.json());
 
-app.get('/',(req, res)=>{
-    res.send('API is running');
-});
 
-app.get('/api/properties', (req,res) => {
-    res.json(properties);
-});
 
-app.get('/api/properties/:id', (req, res) =>{
-    const property = properties.find((prop)=>prop._id === req.params.id);
-    res.json(property);
-});
+app.use('/api/properties',propertyRoutes)
+app.use('/api/users', userRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
