@@ -9,7 +9,7 @@ const Property = ({property})=>{
   const { id } = useParams()
  
   const addToShortlistHandler = () =>{
-    navigate(`/shortlist/${id}`)
+    navigate('/login?redirect=shortlist')
   }
   
     return (
@@ -17,19 +17,13 @@ const Property = ({property})=>{
       <Flex direction='row' bgColor="gray.300" width='100%' h='max' borderRadius='md' _hover={{shadow:'lg'}} py='3' >
         <Link as={RouterLink} to={`/property/${property._id}`} _hover={{textDecor:"none"}}>
             <Box
-            justifyContent="left"
-            
-          
-      
-            
+            justifyContent="left"      
             transition="all"
             //_hover={{ shadow:"md"}}
             directon="row"
             gap="20"
-            ml="4"
-            
+            ml="4"   
             >
-            
              <Flex ml='4' w='100%'>
              <Image
              mr="8"
@@ -69,7 +63,7 @@ const Property = ({property})=>{
             </Box>
         </Link>
         <Flex ml='20' mt='8' mr='10'>
-              <Button onClick={addToShortlistHandler} bgColor="blue.200" w="30" h="35" _hover={{ bgColor:"dark", shadow:"lg"}}>
+              <Button onClick={addToShortlistHandler} bgColor="blue.200" h="40px" w="110px" _hover={{ bgColor:"dark", shadow:"lg"}}>
                 <Icon as={FiStar} color="yellow.500" _hover={{ color:"gray.500"}}  w="6" h="6"  />  ShortList
                 </Button>
               </Flex>

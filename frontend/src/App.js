@@ -8,6 +8,7 @@ import PropertyScreen from "./screens/PropertyScreen";
 import ShortlistScreen from "./screens/ShortlistScreen";
 import LoginScreen from "./screens/LoginScreens";
 import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 const App =() => {
     return (
         
@@ -30,6 +31,7 @@ const App =() => {
             <Route path="/shortlist" element={<ShortlistScreen/>}/>
             <Route path="/login" element={<LoginScreen/>}/>
             <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/profile" element= {<ProfileScreen/>}/>
           </Routes>
           </Flex>
           <Footer/>

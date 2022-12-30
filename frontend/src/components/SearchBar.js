@@ -61,7 +61,7 @@ const SearchBar= ()=>{
                 color='gray.200'
                 direction='row'
                 justify='space-between'>
-                    <Input type='text' textColor='black' placeHolder= 'Search for location' value={wordEntered} onChange={handleFilter} mr='3'/>
+                    <Input type='text' textColor='black' placeholder= 'Search for location' value={wordEntered} onChange={handleFilter} mr='3'/>
                     { filteredProps.length ===0 ? <Icon as={FiSearch} color='black' _hover={{ color:'gray.500'}} w='6' h='6'></Icon>
                      : <Icon as={RiCloseFill} color='black' _hover={{ color:'gray.500'}} w='6' h='6' onClick={clearInput}></Icon>   
                     }

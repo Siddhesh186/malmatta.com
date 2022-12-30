@@ -25,7 +25,7 @@ const PropertyScreen = () =>{
    
 const addToShortlistHandler = () =>{
   
-  navigate(`/shortlist/${id}?login`)
+  navigate('/login?redirect=shortlist')
 }
    
 

@@ -45,7 +45,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <Flex w="full" alignItems="center" justifyContent="center" py="5" mt='10'>
+     <Flex w="full" alignItems="center" justifyContent="center" py="5" mt='10'>
       <FormContainer>
         <Heading as="h1" mb="8" fontSize="3xl">
           Login

@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { propertyListReducer, propertyDetailsReducer } from './reducers/propertyReducer'; 
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
+import { userLoginReducer, userRegisterReducer, userDetailsReducer } from './reducers/userReducers';
 import { shortlistReducer } from './reducers/shortlistReducer';
 
 const reducer = combineReducers({
@@ -11,6 +11,7 @@ const reducer = combineReducers({
     shortlist : shortlistReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
+    userDetails: userDetailsReducer,
     
 });
 

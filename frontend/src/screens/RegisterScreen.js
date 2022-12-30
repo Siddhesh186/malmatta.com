@@ -3,6 +3,7 @@ import {
   Link as RouterLink,
   useSearchParams,
   useNavigate,
+  Await,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -32,24 +33,43 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
-
+  
+  
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
 
   useEffect(() => {
     if (userInfo) {
       navigate(redirect ? `/${redirect}` : '/');
-    }
+    };
+    
   }, [navigate, redirect, userInfo]);
-
+    
   const submitHandler = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
+    
+    if (password !== confirmPassword ) {
       setMessage('Passwords do not match');
-    } else {
+    } else if (!name) {
+      setMessage ('Name Required !')
+      
+    } else if (!email) {
+      setMessage ('email Required !')
+       
+    }
+     else if (!password){
+      setMessage("Password Required !")
+    } else if (password.length <= 6){
+      setMessage("password must be greater than 6 character" )
+    }else if (password.length >= 10){
+      setMessage("password must be less than 10 character" )
+    } 
+    else {
       dispatch(register(name, email, password));
+    
     }
   };
+  
 
   return (
     <Flex w="full" alignItems="center" justifyContent="center" py="5" mt='10'>
@@ -57,10 +77,10 @@ const RegisterScreen = () => {
         <Heading as="h1" mb="8" fontSize="3xl">
           Register
         </Heading>
-
+       
         {error && <Message type="error">{error}</Message>}
         {message && <Message type="error">{message}</Message>}
-
+       
         <form onSubmit={submitHandler}>
           <FormControl id="name">
             <FormLabel>Name</FormLabel>
@@ -71,6 +91,8 @@ const RegisterScreen = () => {
               onChange={(e) => setName(e.target.value)}
             />
           </FormControl>
+         
+
 
           <Spacer h="3" />
 
@@ -81,8 +103,10 @@ const RegisterScreen = () => {
               placeholder="username@domain.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              
             />
           </FormControl>
+     
 
           <Spacer h="3" />
 
@@ -93,6 +117,7 @@ const RegisterScreen = () => {
               placeholder="**************"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+           
             />
           </FormControl>
 
@@ -105,12 +130,16 @@ const RegisterScreen = () => {
               placeholder="**************"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              disabled={!password}
             />
           </FormControl>
 
-          <Button type="submit" isLoading={loading} mt="4" colorScheme="teal">
+          <Button type="submit" isLoading={loading} mt="4" colorScheme="teal" onClick={
+            <Message>Registered successfully</Message>
+          }>
             Register
           </Button>
+          
 
           <Spacer h="3" />
         </form>
@@ -129,3 +158,4 @@ const RegisterScreen = () => {
 };
 
 export default RegisterScreen;
+

@@ -51,9 +51,7 @@ function SearchBar (){
         //bgImage='images/bg5jpg.jpg'
        
         >
-            {/* <Flex  mr='20' mt='5'mb='5' ml='-28' boxShadow='lg'   justify='flex-start'>
-                <Image h='56' w='500px' src="images/land.jpg" alt="picture" borderRadius='md'></Image>
-            </Flex> */}
+        
             <Flex  direction='column'>
             <Flex
             align="center"
