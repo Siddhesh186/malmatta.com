@@ -4,10 +4,11 @@ const FormContainer = ({ children, width = 'xl' }) => {
   return (
     <Flex
       direction="column"
-      boxShadow="md"
+      boxShadow="lg"
       rounded="md"
-      bgColor="white"
-      p="10"
+      
+      bgColor="gray.600"
+      p='10'
       width={width}>
       {children}
     </Flex>

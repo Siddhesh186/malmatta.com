@@ -119,6 +119,6 @@ const properties =[
         gates:1,
         boundryWall:"yes",
         numReviews:3,
-       }
+       },
 ]
 export default properties;

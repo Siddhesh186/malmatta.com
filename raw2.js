@@ -297,3 +297,95 @@
 // };
 
 // export default RegisterScreen;
+
+<Flex direction='row' align='center'  >
+                     <Button onClick={previousPage} h='8' w='20' mr='4' bgColor='gray.300'>Previous</Button>
+                     <Button type="submit" h='8' w='20' bgColor='gray.300' onClick={submitHandlder}  >
+           Submit
+          </Button>
+                    </Flex>
+
+
+
+import React from 'react';
+
+const Step1 = () => {
+  return (
+    <div>
+      <h2>Step 1</h2>
+      <input type="text" placeholder="Enter Name" />
+      <button>Next</button>
+    </div>
+  );
+};
+
+const Step2 = () => {
+  return (
+    <div>
+      <h2>Step 2</h2>
+      <input type="email" placeholder="Enter Email" />
+      <button>Next</button>
+    </div>
+  );
+};
+
+const Step3 = () => {
+  return (
+    <div>
+      <h2>Step 3</h2>
+      <input type="password" placeholder="Enter Password" />
+      <button>Submit</button>
+    </div>
+  );
+};
+
+/////////////////////////////////////////////////////////////
+import React, { useState } from 'react';
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+
+const MultiStepForm = () => {
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => {
+    setStep(step + 1);
+  };
+
+  const previousStep = () => {
+    setStep(step - 1);
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return <Step1 nextStep={nextStep} />;
+      case 2:
+        return <Step2 nextStep={nextStep} previousStep={previousStep} />;
+      case 3:
+        return <Step3 previousStep={previousStep} />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div>
+      {renderStep()}
+    </div>
+  );
+};
+
+export default MultiStepForm;
+/////////////////////////////////////////////////////////////
+// npm install react-otp-input
+// import ReactOtpInput from 'react-otp-input';
+// render() {
+//   return (
+//     <ReactOtpInput
+//       numInputs={6} // number of OTP digits
+//       isInputNum={true} // set to true if input should only accept numbers
+//       onChange={otp => console.log(otp)} // callback function when OTP changes
+//     />
+//   );
+// }

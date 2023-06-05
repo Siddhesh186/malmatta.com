@@ -5,6 +5,17 @@ import {
     PROPERTY_DETAILS_REQUEST,
     PROPERTY_DETAILS_SUCCESS,
     PROPERTY_DETAILS_FAIL,
+    PROPERTY_DELETE_REQUEST,
+    PROPERTY_DELETE_SUCCESS,
+    PROPERTY_DELETE_FAIL,
+    PROPERTY_CREATE_REQUEST,
+    PROPERTY_CREATE_SUCCESS,
+    PROPERTY_CREATE_FAIL,
+    PROPERTY_CREATE_RESET,
+    PROPERTY_UPDATE_REQUEST,
+    PROPERTY_UPDATE_SUCCESS,
+    PROPERTY_UPDATE_FAIL,
+    PROPERTY_UPDATE_RESET
 } from '../constants/propertyConstants';
 
 export const propertyListReducer = (state ={properties: []}, action) => {
@@ -35,3 +46,45 @@ export const propertyDetailsReducer = (
             return state;            
     }
 }
+export const propertyDeleteReducer = (state = {}, action) =>{
+    switch (action.type) {
+        case PROPERTY_DELETE_REQUEST:
+            return {loading:true};
+        case PROPERTY_DELETE_SUCCESS:
+            return { loading: false, success:true}
+        case PROPERTY_DELETE_FAIL:
+            return {loading:false, error:action.payload}  
+        default:
+            return state;          
+    }
+};
+
+export const propertyCreateReducer = (state = { property: {}}, action)=>{
+    switch (action.type) {
+        case PROPERTY_CREATE_REQUEST:
+            return { loading:true};
+        case PROPERTY_CREATE_SUCCESS:
+            return { loading: false, success:true, property:action.payload};
+        case PROPERTY_CREATE_FAIL:
+            return { loading: false, error: action.payload};    
+        case PROPERTY_CREATE_RESET:
+            return { property: {}};
+        default:
+            return state;    
+        }
+};
+
+export const propertyUpdateReducer = (state = { property: {}},action) => {
+    switch(action.type) {
+        case PROPERTY_UPDATE_REQUEST:
+            return { loading: true} ;
+        case PROPERTY_UPDATE_SUCCESS:
+            return { loading: false, success: true, property:action.payload};
+        case PROPERTY_UPDATE_FAIL:
+            return { loading:false, error: action.payload};
+        case PROPERTY_UPDATE_RESET:
+            return {property: {}};
+        default:
+            return state;                
+    }
+};

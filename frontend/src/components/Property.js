@@ -1,15 +1,14 @@
-import {Box, Link, Image, Flex, Heading, Text,Spacer, Icon,Button,Divider} from "@chakra-ui/react";
-import {Link as RouterLink, useParams, useNavigate} from "react-router-dom";
+import {Box, Link, Image, Flex, Heading,  Icon,Button,Divider} from "@chakra-ui/react";
+import {Link as RouterLink,  useNavigate, useParams } from "react-router-dom";
 import {FiStar} from "react-icons/fi";
 import {IoLocationSharp,IoPricetags} from "react-icons/io5";
-import {TbDimensions} from "react-icons/tb"
+import {TbDimensions} from "react-icons/tb";
 const Property = ({property})=>{
  
   const navigate = useNavigate()
-  const { id } = useParams()
- 
+  const { id } = useParams(); 
   const addToShortlistHandler = () =>{
-    navigate('/login?redirect=shortlist')
+    navigate(`/shortlist/${id}`)
   }
   
     return (
@@ -62,11 +61,7 @@ const Property = ({property})=>{
             </Flex>   
             </Box>
         </Link>
-        <Flex ml='20' mt='8' mr='10'>
-              <Button onClick={addToShortlistHandler} bgColor="blue.200" h="40px" w="110px" _hover={{ bgColor:"dark", shadow:"lg"}}>
-                <Icon as={FiStar} color="yellow.500" _hover={{ color:"gray.500"}}  w="6" h="6"  />  ShortList
-                </Button>
-              </Flex>
+       
             </Flex>  
               
         </>

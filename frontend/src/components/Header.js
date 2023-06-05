@@ -14,8 +14,10 @@ import {
   MenuList,
   MenuItem as MenuItemChakra,
   Button,
+  Text
 } from '@chakra-ui/react';
 import { HiUser, HiOutlineMenuAlt3 } from 'react-icons/hi';
+import {FcUpload} from 'react-icons/fc';
 import {RiRegisteredLine  } from 'react-icons/ri';
 import { IoChevronDown } from 'react-icons/io5';
 import { logout } from '../actions/userActions';
@@ -99,12 +101,30 @@ const Header = () => {
         {/* Login/Logout Views */}
         {userInfo ? (
           <Menu>
+           
+            <Flex
+             align='center'
+            as={RouterLink} to='/uploadproperty'
+             w='56'
+            
+             mr='4'
+             h='10'
+             justify='center'
+             borderRadius='md'
+            bgColor='gray.100 '>
+               <Text fontSize='lg' color='black' fontFamily='heading' fontWeight='medium'>Post Property</Text> 
+              <Icon as={FcUpload} h='4' w='8'></Icon>
+            
+            </Flex>
+            
+             
             <MenuButton
               as={Button}
               rightIcon={<IoChevronDown />}
               _hover={{ textDecoration: 'none', opacity: '0.7' }}>
               {userInfo.name}
             </MenuButton>
+           
             <MenuList>
               <MenuItemChakra as={RouterLink} to="/profile">
                 Profile
@@ -126,6 +146,30 @@ const Header = () => {
             </Flex>
           </MenuItem>
           </>
+        )}
+
+        {/* {Admin Menu} */}
+        {userInfo && userInfo.isAdmin && (
+          <Menu>
+            <MenuButton
+            ml='5'
+            color='white'
+            fontWeight='semibold'
+            as={Link}
+            textTransform="uppercase"
+            _hover={{ textDecor: 'none', opacity: 'o.7'}}
+            >
+                Manage <Icon as={IoChevronDown}/>
+            </MenuButton>
+            <MenuList>
+              <MenuItemChakra as = {RouterLink} to = '/admin/userlist'>
+                All Users 
+              </MenuItemChakra>
+              <MenuItemChakra as = {RouterLink} to = '/admin/propertylist'>
+                All Properties
+              </MenuItemChakra>
+            </MenuList>
+          </Menu>
         )}
       </Box>
     </Flex>

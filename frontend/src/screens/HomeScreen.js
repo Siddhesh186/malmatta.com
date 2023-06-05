@@ -24,7 +24,8 @@ const HomeScreen = () => {
  
 
     return (
-        <>    
+        <>   
+
          { loading ? (
            <Loader/>
            ): error ? (
@@ -37,7 +38,7 @@ const HomeScreen = () => {
             Featuring some plots for you
          </Heading>
          <Spacer/>
-            <Grid gridTemplateColumns='4fr 4fr' w="100%" bgColor="gray.300S" gap="2" mt="4" mb='4' px='4'>
+            <Grid gridTemplateColumns='4fr 4fr' w="100%" bgColor="gray.300S" gap="2" mt="4" mb='20' px='4' >
             {properties.slice(0,8).map((prop)=>(
                <Property property={prop} key={prop._id}/>
            ) )}
@@ -45,8 +46,6 @@ const HomeScreen = () => {
         </>
            )}
             
-         
-         
         </>
     );
 };

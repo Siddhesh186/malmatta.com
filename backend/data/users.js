@@ -7,6 +7,7 @@ const users = [
     password: bcrypt.hashSync('123456', 10),
     isAdmin: true,
     isAgent: true,
+    isClient:true,
   },
   {
     name: 'John Doe',
@@ -14,6 +15,7 @@ const users = [
     password: bcrypt.hashSync('123456', 10),
     isAdmin: false,
     isAgent: false,
+    isClient:true
   },
   {
     name: 'Jane Doe',
@@ -21,6 +23,7 @@ const users = [
     password: bcrypt.hashSync('123456', 10),
     isAdmin: false,
     isAgent: true,
+    isClient:true,
   },
 ];
 

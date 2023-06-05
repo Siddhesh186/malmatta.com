@@ -15,6 +15,7 @@ import {
   Input,
   Link,
   Spacer,
+  Divider,
 } from '@chakra-ui/react';
 import Message from '../components/Message';
 import FormContainer from '../components/FormContainer';
@@ -45,33 +46,37 @@ const LoginScreen = () => {
   };
 
   return (
-     <Flex w="full" alignItems="center" justifyContent="center" py="5" mt='10'>
+     <Flex w="full" alignItems="center" justifyContent="center" py="5" mt='10' mb='40'  >
       <FormContainer>
-        <Heading as="h1" mb="8" fontSize="3xl">
+        <Flex borderBottom='1px'  mb='8'  _hover={{borderColor:'black.900'}}  justify='center'  align ='center'>
+        <Heading as="h1" mb='6'  fontSize="3xl" color='white'>
           Login
         </Heading>
-
+        </Flex>
+        
         {error && <Message type="error">{error}</Message>}
 
-        <form onSubmit={submitHandler}>
-          <FormControl id="email">
-            <FormLabel>Email Address</FormLabel>
+        <form onSubmit={submitHandler} >
+          <FormControl id="email" isRequired>
+            <FormLabel color='white'>Email Address</FormLabel>
             <Input
               type="email"
               placeholder="username@domain.com"
               value={email}
+              bg='white'
               onChange={(e) => setEmail(e.target.value)}
             />
           </FormControl>
 
           <Spacer h="3" />
 
-          <FormControl id="password">
-            <FormLabel>Password</FormLabel>
+          <FormControl id="password" isRequired>
+            <FormLabel color='white'>Password</FormLabel>
             <Input
               type="password"
               placeholder="**************"
               value={password}
+              bg='white'
               onChange={(e) => setPassword(e.target.value)}
             />
           </FormControl>
@@ -84,9 +89,9 @@ const LoginScreen = () => {
         </form>
 
         <Flex pt="5">
-          <Text fontWeight="semibold">
+          <Text fontWeight="semibold" color='white'>
             New Customer?{' '}
-            <Link as={RouterLink} to="/register">
+            <Link as={RouterLink} to="/register" color='white'>
               Click here to register.
             </Link>
           </Text>

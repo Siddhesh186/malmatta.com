@@ -241,3 +241,230 @@ const LoginScreen = () => {
 // };
 
 // export default LoginScreen; */}
+{/* <FormControl id="name">
+            <FormLabel>Name</FormLabel>
+            <Input
+              type="name"
+              placeholder="Your Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </FormControl>
+         
+
+
+          <Spacer h="3" />
+
+          <FormControl id="email">
+            <FormLabel>Email Address</FormLabel>
+            <Input
+              type="email"
+              placeholder="username@domain.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              
+            />
+          </FormControl>
+     
+
+          <Spacer h="3" />
+
+          <FormControl id="password">
+            <FormLabel>Password</FormLabel>
+            <Input
+              type="password"
+              placeholder="**************"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+           
+            />
+          </FormControl>
+
+          <Spacer h="3" />
+
+          <FormControl id="confirmPassword">
+            <FormLabel>Confirm Password</FormLabel>
+            <Input
+              type="password"
+              placeholder="**************"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              disabled={!password}
+            />
+          </FormControl>
+
+          <Button type="submit" isLoading={loading} mt="4" colorScheme="teal" onClick={
+            <Message>Registered successfully</Message>
+          }>
+            Register
+          </Button>
+          
+
+          <Spacer h="3" /> */}
+    //       return (
+    //         <Flex w='full' alignItems='center' bgColor='white'  justify='center' py='5' mt='-7' direction='row' h='800px' mb='32'>
+    //             <Flex mr='5'direction='column' align='flex-start' mt='-56' >
+    //                  <Heading color='blue.600' alignContent='start' fontFamily='cursive'> We are here to get you best deals</Heading>
+    //                  <Flex direction='row'  justify='center' align='flex-start'>
+    //                     <Icon as={TiInputCheckedOutline} color='green.200' h='10' w='10'/>
+    //                     <Text fontSize='2xl' color='blue.500' >Contact with Trained Agent</Text>
+    //                  </Flex>
+    //                  <Flex direction='row'  justify='center' align='flex-start'>
+    //                     <Icon as={TiInputCheckedOutline} color='green.200' h='10' w='10'/>
+    //                     <Text fontSize='2xl' color='blue.500' >Best Deal For You Property</Text>
+    //                  </Flex>
+    //                  <Flex direction='row'  justify='center' align='flex-start'>
+    //                     <Icon as={TiInputCheckedOutline} color='green.200' h='10' w='10'/>
+    //                     <Text fontSize='2xl' color='blue.500' >Advertise For Free</Text>
+    //                  </Flex>
+    //             </Flex>
+    //             <FormContainer >
+    //                 <Flex borderBottom='1px' _hover={{borderColor:'black.900'}} >
+    //                     <Heading as='h1' mb='8' fontSize= '4xl' color='white'>
+    //                         Post Your Property
+    //                     </Heading>
+                        
+    //                 </Flex>
+    
+    //                   {loadingCreate && <Loader/>}
+    //                   {errorCreate && <Message type='error'>{errorCreate}</Message>}
+    //               {loading ? (
+    //                 <Loader/>
+    //               ) : error ? (
+    //                 <Message type='error'>{error}</Message>
+    //               ) : (   
+    //                <form onSubmit={createPropertyHandler}>
+                    
+                    
+    //                 {page ===1 && (
+    //                     <Flex direction='column' >
+    //                         <FormControl id='name' isRequired >
+    //                             <FormLabel color='white'>Name</FormLabel>
+    //                             <Input type='text'
+    //                             placeholder="Your full name"
+    //                             value={name}
+    //                             bg='white'
+    //                             onChange={(e)=> setName(e.target.value)}/>
+    //                         </FormControl>
+    
+    //                         <Spacer h='3'/>
+    //                         <FormControl id='location' isRequired>
+    //                             <FormLabel color='white'>Location</FormLabel>
+    //                             <Input type='text'
+    //                             placeholder="Location of property"
+    //                             value={location}
+    //                             bg='white'
+    //                             onChange={(e)=> setLocation(e.target.value)}/>
+    //                         </FormControl>
+    //                         <Spacer h='3'/>
+    //                         <FormControl id='type' isRequired>
+    //                             <FormLabel color='white'>Type</FormLabel>
+    //                             <Input type='text'
+    //                             placeholder="NA plot Or A plot"
+    //                             value={type}
+                               
+    //                             bg='white'
+                               
+    //                             onChange={(e)=> setType(e.target.value)}/>
+                                
+    //                         </FormControl>
+                       
+    
+    //                         <br/>
+    //                         <Button onClick={nextPage} disabled={!name}  h='8' w='20' colorScheme="teal">Next</Button>
+    
+    //                     </Flex>
+    //                 )}
+    //                 { page ===2 && (
+    //                     <Flex direction='column' >
+    //                         {/* IMAGE */}
+    //                       <FormControl id='image' isRequired>
+    //                         <FormLabel color='white'>Image</FormLabel>
+    //                         <Input type='text'
+    //                         placeholder="Enter Image Url"
+    //                         value={image}
+    //                         bg='white'
+    //                         onChange={(e)=> setImage(e.target.value)}/>
+    //                         <Input 
+    //                         type='file'
+    //                          bg='gray.100'
+    //                         id='image-file'
+    //                         onChange={uploadFileHandler}/>
+    //                     </FormControl>
+    
+    //                     <Spacer h='3'/>
+    //                     <FormControl id='dimension' isRequired>
+    //                         <FormLabel color='white'>Dimesnion</FormLabel>
+    //                         <Input type='number'
+    //                         placeholder="Enter Dimension"
+    //                         value={dimension}
+    //                         bg='white'
+    //                         onChange={(e)=> setDimension(e.target.value)}/>
+    //                     </FormControl>
+    //                     <Spacer h='3'/>
+    //                     <FormControl id='price' isRequired>
+    //                         <FormLabel color='white'>Price</FormLabel>
+    //                         <Input type='number'
+    //                         placeholder="Enter Pricing"
+    //                         value={price}
+    //                         bg='white'
+    //                         onChange={(e)=> setPrice(e.target.value)}/>
+    //                     </FormControl>
+    //                     <br/>
+    //                       <Flex direction='row'> 
+    //                        <Button onClick={previousPage} h='8' w='20' mr='4' colorScheme="teal">Previous</Button>
+    //                         <Button onClick={nextPage} h='8' w='20' colorScheme="teal">Next</Button>
+    //                         </Flex>
+    //                 </Flex>
+    //                 )}
+    //                 { page === 3 && (
+    //                     <Flex direction='column'>
+    //                         <FormControl id='description' isRequired>
+    //                         <FormLabel color='white'>description</FormLabel>
+    //                         <Input type='text'
+    //                         placeholder="Add Description"
+    //                         value={description}
+    //                         bg='white'
+    //                         onChange={(e)=> setDescription(e.target.value)}/>
+    //                     </FormControl>
+    //                     <Spacer h='3'/>
+    //                         <FormControl id='gates' isRequired>
+    //                         <FormLabel color='white'>Number of gates</FormLabel>
+    //                         <Input type='number'
+    //                         placeholder=" "
+    //                         value={gates}
+    //                         bg='white'
+    //                         onChange={(e)=> setGates(e.target.value)}/>
+    
+    //                     </FormControl>
+    //                     <Spacer h='3'/>
+    //                         <FormControl id='boundryWall' isRequired>
+    //                         <FormLabel color='white'>Boundrywall</FormLabel>
+    //                         <Input type='text'
+    //                         placeholder=" "
+    //                         value={boundryWall}
+    //                         bg='white'
+    //                         onChange={(e)=> setBoundryWall(e.target.value)}/>
+    //                     </FormControl>
+                            
+    //                     <Flex direction='row' align='center' mt='3' >
+    //                      <Button onClick={previousPage} h='8' w='20' mr='4' colorScheme="teal">Previous</Button>
+    //                      <Button isLoading={loading}  h='8' w='20' colorScheme="teal" type='submit'  >
+    //                         Submit
+    //                     </Button>
+    //                     </Flex>
+    //                     </Flex>
+                        
+    //                 )}
+    //                </form>
+    //                )} 
+    //             </FormContainer>
+    //         </Flex>
+    //      )
+    // };
+    
+    // export default MultiForm;
+     
+    
+
+

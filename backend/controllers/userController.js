@@ -13,6 +13,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      phoneNo:user.phoneNo,
       token: generateToken(user._id),
     });
   } else {
@@ -33,6 +34,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
+        isClient: user.isClient,
+        phoneNo:user.phoneNo,
       });
     } else {
       res.status(404);
@@ -59,6 +62,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
+        phoneNo: user.phoneNo,
         token: generateToken(user._id),
       });
     } else {
@@ -84,6 +88,7 @@ const updateUserProfile = asyncHandler(async(req,res)=> {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
+      phoneNo:updatedUser.phoneNo,
       token: generateToken(updatedUser._id),
     });
   } else {
@@ -91,6 +96,41 @@ const updateUserProfile = asyncHandler(async(req,res)=> {
     throw new error ('User not found')
   }
 }); 
-  
 
-export { authUser, getUserProfile, registerUser, updateUserProfile };
+//@ access private/admin
+const getUsers  = asyncHandler(async(req,res) => {
+     const users = await User.find({});
+     res.json(users);
+});
+
+
+//@ delete user
+//@route DELETE /api/users/:id
+//@access private/admin
+
+const deleteUser = asyncHandler(async(req,res)=>{
+  const user =  await User.findById(req.params.id);
+
+  if (user) {
+    await user.remove();
+    res.json({ messge: 'user Deleted'});
+
+  } else {
+    res.status(404);
+    throw new Error('User not found')  }
+});
+const getUserById = asyncHandler(async(req,res) => {
+  const user = await User.findById(req.params.id).select('-password');
+
+  if (user){
+    res.json(user)
+  } else {
+    res.status(404)
+    throw new Error('User not found');
+  }
+});
+
+
+
+export { authUser, getUserProfile, registerUser, updateUserProfile,getUsers, deleteUser,getUserById };
+

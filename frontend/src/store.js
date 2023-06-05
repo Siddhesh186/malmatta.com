@@ -1,18 +1,24 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { propertyListReducer, propertyDetailsReducer } from './reducers/propertyReducer'; 
-import { userLoginReducer, userRegisterReducer, userDetailsReducer } from './reducers/userReducers';
+import { propertyListReducer,propertyUpdateReducer, propertyDetailsReducer, propertyDeleteReducer, propertyCreateReducer } from './reducers/propertyReducer'; 
+import { userLoginReducer,userListReducer, userRegisterReducer,userDeleteReducer, userDetailsReducer, userUpdateProfileReducer,userUpdateReducer } from './reducers/userReducers';
 import { shortlistReducer } from './reducers/shortlistReducer';
 
 const reducer = combineReducers({
     propertyList: propertyListReducer,
     propertyDetails: propertyDetailsReducer,
+    propertyDelete:propertyDeleteReducer,
+    propertyCreate:propertyCreateReducer,
+    propertyUpdate:propertyUpdateReducer,
     shortlist : shortlistReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
-    
+    userUpdateProfile: userUpdateProfileReducer,
+    userList:userListReducer,
+    userDelete: userDeleteReducer,
+    userUpdate:userUpdateReducer,
 });
 
 const shortlistItemsFromStorage =

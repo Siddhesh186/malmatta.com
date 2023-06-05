@@ -26,8 +26,7 @@ import { addToShortlist, removeFromShortlist } from '../actions/shortlistActions
  const ShortlistScreen = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [ searchParams ] = useSearchParams();
-
+    
     const { id: propertyId} = useParams();
 
     const shortlist = useSelector((state)=> state.shortlist);
@@ -43,18 +42,20 @@ import { addToShortlist, removeFromShortlist } from '../actions/shortlistActions
         dispatch(removeFromShortlist(id));
     };
     const checkoutHandler = ()=> {
-        navigate('/login?redirect=contactAgent')
+        navigate('/login?redirect=profile')
     }
 
     return (
+        
         <Grid>
-            <Box>
-                
-                <Text fontWeight='extrabold' fontSize='lg' mb="6" mt='8' ml='5'>ShortList</Text>
+            <Box mb='56'>
+
+            <Heading mb="8" mt='10' as='h2'>Shortlist</Heading>
+                  
                 <Flex  >
                     {shortlistItems.length === 0 ? (
                         <Message>
-                            Shortlist is empty..{' '}
+                            Shortlist is empty.{' '}
                             <Link as= {RouterLink} to='/'>
                                 Go back
                             </Link>

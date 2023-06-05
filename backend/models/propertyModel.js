@@ -18,7 +18,8 @@ const reviewSchema = mongoose.Schema({
         ref: 'User',
         required: true,
     },
-})
+}, { timestamps: true }
+)
 
 const propertySchema = mongoose.Schema(
    {

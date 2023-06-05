@@ -16,8 +16,7 @@ export const addToShortlist = (id) => async (dispatch, getState) => {
         }
     });
      
-    localStorage.setItem('shortlistItems', JSON.stringify(getState().shortlist.shortlistItems))
-};
+    localStorage.setItem('shortlistItems', JSON.stringify(getState().shortlist.shortlistItems))};
 
 export const removeFromShortlist = (id) => (dispatch, getState) => {
     dispatch({type:SHORTLIST_REMOVE_ITEM, payload: id});

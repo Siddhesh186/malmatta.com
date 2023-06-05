@@ -25,17 +25,15 @@ const PropertyScreen = () =>{
    
 const addToShortlistHandler = () =>{
   
-  navigate('/login?redirect=shortlist')
+  navigate(`/shortlist/${id}`)
 }
-   
-
 
     return(
         <>
          <Flex
         justify="space-between"
         bgColor='white'
-        mt="5"
+        mt="8"
         mb="3">
             <Button as={RouterLink} to="/"  bgColor='white'>
                 Go Back
@@ -50,7 +48,7 @@ const addToShortlistHandler = () =>{
       ) : (
         
        
-        <Flex w='500' bgColor='blue.100' mr='40' ml='40'    h="450" borderRadius="lg" overflow='hidden' _hover={{shadow:'md'}}  >
+        <Flex w='500' bgColor='blue.100' mr='40' ml='40' mb='40'   h="450" borderRadius="lg" overflow='hidden' _hover={{shadow:'md'}}  >
         <Flex direction="row" gap="10" mt='10'   ml="10" mr="10"  px='3'  borderRadius="lg"  >
             {/*column 1 */}
             <Flex direction="column" ml="5" mt='5'>
@@ -89,7 +87,7 @@ const addToShortlistHandler = () =>{
                     
                 </Flex>
                <Flex  direction="row" mt='10'>
-                <Button as={RouterLink} to="/" bgColor="blue.400" w="40" h="35" mb="4" _hover={{ bgColor:"dark", shadow:"lg"}}>
+                <Button as={RouterLink} to="/contactAgent" bgColor="blue.400" w="40" h="35" mb="4" _hover={{ bgColor:"dark", shadow:"lg"}}>
                     Contact Agent
                 </Button>
                

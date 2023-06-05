@@ -8,8 +8,7 @@ import User from './models/userModel.js';
 import connectDB from './config/db.js'
 
 dotenv.config();
-
-await connectDB();
+connectDB();
 
 const importData = async () =>{
     try {

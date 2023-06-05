@@ -1,5 +1,4 @@
 import { SHORTLIST_ADD_ITEM, SHORTLIST_REMOVE_ITEM } from "../constants/shortlistConstants";
-
 export const shortlistReducer =(state = { shortlistItems:[]}, action) => {
     switch (action.type) {
         case SHORTLIST_ADD_ITEM:

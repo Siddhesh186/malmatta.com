@@ -24,8 +24,20 @@ const userSchema = mongoose.Schema(
         isAgent : {
             type: Boolean,
             required : true,
-            default : false
+            default : false,
+            
         },
+        isClient : {
+            type: Boolean,
+            required : true,
+            default : false,
+            
+        },
+        phoneNo: {
+            type:Number,
+            required:false,
+            
+        }
     },
     {timestamps: true}
 );
